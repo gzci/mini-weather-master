@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--工具栏-->
+    <include android:id="@+id/title"
+        layout="@layout/weather_info_bar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:background="@drawable/biz_plugin_weather_shenzhen_bg"
+        android:orientation="vertical"
+        >
+        <!--今日天气内容-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/today_info"
+            android:padding="10dp">
+            <!--城市-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/today_city"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="15dp"
+                android:text="北京"
+                android:textSize="40.0sp"
+                android:textColor="@android:color/white"
+                />
+            <!--发布时间-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/today_time"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/today_city"
+                android:text="今天18:25发布"
+                android:textSize="15.0sp"
+                android:textColor="@android:color/white"
+                />
+            <!--湿度-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/today_humidity"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@id/today_time"
+                android:text="湿度：57%"
+                android:textSize="15.0sp"
+                android:textColor="@android:color/white"
+                />
+            <!--温度-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/today_temperature"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@id/today_humidity"
+                android:text="温度：15°C"
+                android:textSize="15.0sp"
+                android:textColor="@android:color/white"
+                />
+            <!--pm2.5-->
+            <include android:id="@+id/pm25"
+                layout="@layout/weather_info_pm25"/>
+            <!--今日天气具体-->
+            <include android:id="@+id/today_weather_detail"
+                layout="@layout/weather_info_today_detail"/>
+        </RelativeLayout>
+        <!--最近6天天气-->
+        <RelativeLayout
+            android:id="@+id/six_days"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/six_days_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                android:id="@+id/six_days_indicators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/six_days_iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/page_indicator_focused"/>
+                <ImageView
+                    android:id="@+id/six_days_iv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/page_indicator_unfocused"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <!--其他-->
+    </LinearLayout>
+
+</RelativeLayout>
